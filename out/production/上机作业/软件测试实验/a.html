@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三角形验证器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 80px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1>Triangle Validator</h1>
+<form>
+    <div>
+        <label>边长 A:</label>
+        <input type="text" id="sideA" required>
+    </div>
+    <div>
+        <label>边长 B:</label>
+        <input type="text" id="sideB" required>
+    </div>
+    <div>
+        <label>边长 C:</label>
+        <input type="text" id="sideC" required>
+    </div>
+    <div>
+        <button type="button" id="validateButton">验证</button>
+        <button type="button" id="clearButton">清除</button>
+        <button type="button" id="exitButton">退出</button>
+    </div>
+</form>
+<div id="result"></div>
+<script>
+    const sideAInput = document.getElementById("sideA");
+    const sideBInput = document.getElementById("sideB");
+    const sideCInput = document.getElementById("sideC");
+    const validateButton = document.getElementById("validateButton");
+    const clearButton = document.getElementById("clearButton");
+    const exitButton = document.getElementById("exitButton");
+    const resultDiv = document.getElementById("result");
+
+    validateButton.addEventListener("click", function () {
+        const a = Number(sideAInput.value);
+        const b = Number(sideBInput.value);
+        const c = Number(sideCInput.value);
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            showError("所有边都必须是数字。");
+        } else if (a <= 0 || b <= 0 || c <= 0) {
+            showError("所有边必须大于 0。");
+        } else if (a + b <= c || a + c <= b || b + c <= a) {
+            showError("这些边不能形成三角形。");
+        } else if (a === b && b === c) {
+            showSuccess("这是一个等边三角形。");
+        } else if (a === b || a === c || b === c) {
+            showSuccess("这是一个等腰三角形。");
+        } else {
+            showSuccess("这是一个斜角三角形。");
+        }
+    });
+
+    clearButton.addEventListener("click", function () {
+        sideAInput.value = "";
+        sideBInput.value = "";
+        sideCInput.value = "";
+        resultDiv.innerHTML = "";
+    });
+
+    exitButton.addEventListener("click", function () {
+        window.close();
+    });
+
+    function showError(message) {
+        resultDiv.innerHTML = '<p style="color: red;">' + message + '</p>';
+    }
+
+    function showSuccess(message) {
+        resultDiv.innerHTML = '<p style="color: green;">' + message + '</p>';
+    }
+</script>
