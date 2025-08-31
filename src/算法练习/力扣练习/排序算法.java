@@ -44,7 +44,7 @@ public class 排序算法 {
 
         while (i < j){
             // 右侧找出第一个比pivot要小的值
-            if (i < j && pivot <= arr[j]) j--;
+            if (pivot <= arr[j]) j--;
             if (i < j && pivot >= arr[i]) i++;
             swap(arr, i, j);
         }
