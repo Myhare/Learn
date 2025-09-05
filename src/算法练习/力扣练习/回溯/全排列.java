@@ -14,6 +14,13 @@ public class 全排列 {
         return resList;
     }
 
+    /**
+     * @param resList
+     * @param nums
+     * @param n
+     * @param bools 下标为i的数是否已经出现了
+     * @param path
+     */
     public void dfs(List<List<Integer>> resList,int[] nums,int n,boolean[] bools,List<Integer> path){
         // 边界条件
         if(path.size() >= n){
