@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.48">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
     <root id="1"/>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -965,31 +965,5 @@
     <user id="308" parent="1" name="root">
       <Host>localhost</Host>
     </user>
-    <table id="309" parent="281" name="customers"/>
-    <table id="310" parent="281" name="orders"/>
-    <column id="311" parent="309" name="cust_id">
-      <Comment>客户id</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="312" parent="309" name="cust_name">
-      <Comment>客户姓名</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="313" parent="310" name="order_num">
-      <Comment>商品订单号</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="314" parent="310" name="cust_id">
-      <Comment>顾客id</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
   </database-model>
 </dataSource>
