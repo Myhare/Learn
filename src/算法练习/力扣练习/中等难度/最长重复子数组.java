@@ -8,6 +8,7 @@ public class 最长重复子数组 {
 
         int n = nums1.length;
         int m = nums2.length;
+        // 表示nums1[i]和nums2[j]为最后节点的重复子数组的最大长度
         int[][] dp = new int[n+1][m+1];
 
         for (int i = 0; i < n; i++) {
