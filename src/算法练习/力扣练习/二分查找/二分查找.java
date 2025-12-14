@@ -50,7 +50,6 @@ public class 二分查找 {
 
     public static void main(String[] args) {
         int[] arr = {-1, 0, 3, 5, 9, 9, 12};
-        System.out.println(binary3(arr, 9));
     }
 
 }
