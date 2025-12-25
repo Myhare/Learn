@@ -10,7 +10,7 @@ public class SingletonLazy {
      *  如果有多个线程同时获取对象，会同时认为单例为null，从而创建多个对象返回
      */
 
-    private static SingletonLazy singletonLazy = null;
+    private static volatile SingletonLazy singletonLazy = null;
 
     public SingletonLazy() {
 
