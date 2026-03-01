@@ -21,11 +21,11 @@ public class 背包问题 {
         // 填充dp数组
         for (int i = 1; i <= n; i++) {
             // 获取当前物品的重量
-            int w = wArr[i - 1];
-            int v = vArr[i - 1];
+            int w = wArr[i - 1]; // 重量
+            int v = vArr[i - 1]; // 价格
             for (int j = 1; j <= capacity; j++) {
                 if (w > j){
-                    // 当前物品重量大于剩余重量,不能放这个物品
+                    // 当前物品重量大于背包剩余容量,不能放这个物品
                     dp[i][j] = dp[i-1][j];
                 }else {
                     // 当前物品重量小于剩余重量，可以选择是否放入背包
