@@ -2,10 +2,10 @@ package 算法练习.力扣练习.中等难度;
 
 public class 长度最小的子数组 {
 
-    public static final int INIT_SIZE = 0;
+
 
     public static int minSubArrayLen(int target, int[] nums) {
-        int minSize = INIT_SIZE;
+        int minSize = Integer.MAX_VALUE;
 
         int left = 0, right = 0;
         int tempSize = 0;
@@ -13,7 +13,7 @@ public class 长度最小的子数组 {
             tempSize = tempSize + nums[right];
             while (tempSize >= target && left <= right){
                 int len = right - left + 1;
-                minSize = minSize == INIT_SIZE ? len : Math.min(minSize, len);
+                minSize = Math.min(minSize, len);
                 tempSize = tempSize - nums[left];
                 left++;
             }
@@ -21,7 +21,7 @@ public class 长度最小的子数组 {
         }
 
 
-        return minSize;
+        return minSize == Integer.MAX_VALUE ? 0 : minSize;
     }
 
     public static void main(String[] args) {
